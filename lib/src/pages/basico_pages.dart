@@ -23,10 +23,14 @@ class BasicoPage extends StatelessWidget {
   }
 
   Widget _crearImg() {
-    return Image(
-      image: NetworkImage(
-          'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQYy5j5g5gU9l6P4X1tNLQ03Bg3V2wKbL6hMVcp-2rzGybFye_J'),
-      fit: BoxFit.cover,
+    return Container(
+      width: double.infinity,
+      child: Image(
+        image: NetworkImage(
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQYy5j5g5gU9l6P4X1tNLQ03Bg3V2wKbL6hMVcp-2rzGybFye_J'),
+        fit: BoxFit.cover,
+        height: 180.0,
+      ),
     );
   }
 
