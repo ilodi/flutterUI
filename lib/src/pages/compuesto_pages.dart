@@ -11,8 +11,16 @@ class CompuestoPage extends StatelessWidget {
       body: Stack(
         children: <Widget>[
           _fondoApp(),
+          SingleChildScrollView(
+            child: Column(
+              children: <Widget>[
+                _titulos(),
+              ],
+            ),
+          )
         ],
       ),
+      bottomNavigationBar: _BottomNavigationBar(context),
     );
   }
 
@@ -39,10 +47,9 @@ class CompuestoPage extends StatelessWidget {
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(80.0),
             gradient: LinearGradient(colors: [
-               Color.fromRGBO(249, 71, 193, 1.0),
+              Color.fromRGBO(249, 71, 193, 1.0),
               Color.fromRGBO(243, 144, 170, 1.0),
-            ])
-            ),
+            ])),
       ),
     );
 
@@ -55,6 +62,62 @@ class CompuestoPage extends StatelessWidget {
           child: cajaRosa,
         ),
       ],
+    );
+  }
+
+  Widget _titulos() {
+    return SafeArea(
+      child: Container(
+        padding: EdgeInsets.all(20.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text('Classify transaction',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 34.0,
+                    fontWeight: FontWeight.bold)),
+            SizedBox(
+              height: 5.0,
+            ),
+            Text(
+              'Classify transaction into a particulas category',
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 18.0,
+                  fontWeight: FontWeight.w300),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _BottomNavigationBar(BuildContext context) {
+    return new Theme(
+      data: Theme.of(context).copyWith(
+        canvasColor: Color.fromRGBO(55, 57, 84, 1.0),
+        primaryColor: Colors.pinkAccent,
+        textTheme: Theme.of(context).textTheme.copyWith(
+          caption: TextStyle(color: Color.fromRGBO(116, 117, 152, 1.0))
+        )
+      ),
+      child: BottomNavigationBar(
+        items: [
+          BottomNavigationBarItem(
+            title: Container(),
+            icon: Icon(Icons.calendar_today, size: 30.0),
+          ),
+          BottomNavigationBarItem(
+            title: Container(),
+            icon: Icon(Icons.bubble_chart, size: 30.0),
+          ),
+          BottomNavigationBarItem(
+            title: Container(),
+            icon: Icon(Icons.supervised_user_circle, size: 30.0),
+          )
+        ],
+      ),
     );
   }
 }
