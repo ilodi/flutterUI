@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
@@ -127,52 +128,69 @@ class CompuestoPage extends StatelessWidget {
     return Table(
       children: [
         TableRow(
-          children: [_crearBotonRedondeado(), _crearBotonRedondeado()],
+          children: [
+            _crearBotonRedondeado(Colors.blue, Icons.border_all, 'General'),
+            _crearBotonRedondeado(Colors.purple, Icons.edit, 'General'),
+          ],
         ),
         TableRow(
-          children: [_crearBotonRedondeado(), _crearBotonRedondeado()],
+          children: [
+            _crearBotonRedondeado(Colors.red, Icons.edit_attributes, 'General'),
+            _crearBotonRedondeado(Colors.orange, Icons.enhanced_encryption, 'General'),
+          ],
         ),
         TableRow(
-          children: [_crearBotonRedondeado(), _crearBotonRedondeado()],
+          children: [
+            _crearBotonRedondeado(Colors.green, Icons.eject, 'General'),
+            _crearBotonRedondeado(Colors.yellow, Icons.drag_handle, 'General'),
+          ],
         ),
         TableRow(
-          children: [_crearBotonRedondeado(), _crearBotonRedondeado()],
+          children: [
+            _crearBotonRedondeado(Colors.blueAccent, Icons.dvr, 'General'),
+            _crearBotonRedondeado(Colors.lightBlue, Icons.directions_bus, 'General'),
+          ],
         )
       ],
     );
   }
 
-  Widget _crearBotonRedondeado() {
-    return Container(
-      height: 180.0,
-      margin: EdgeInsets.all(15.0),
-      decoration: BoxDecoration(
-        color: Color.fromRGBO(62, 66, 107, 0.7),
-        borderRadius: BorderRadius.circular(20.0),
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: <Widget>[
-           SizedBox(
-            height: 5.0,
+  Widget _crearBotonRedondeado(Color color, IconData icono, String texto) {
+    return ClipRect(
+      child: BackdropFilter(
+        filter: ImageFilter.blur(sigmaX: 1.0, sigmaY: 1.0),
+        child: Container(
+          height: 180.0,
+          margin: EdgeInsets.all(15.0),
+          decoration: BoxDecoration(
+            color: Color.fromRGBO(62, 66, 107, 0.7),
+            borderRadius: BorderRadius.circular(20.0),
           ),
-          CircleAvatar(
-            backgroundColor: Colors.purple,
-            radius: 35.0,
-            child: Icon(
-              Icons.bug_report,
-              color: Colors.white,
-              size: 30.0,
-            ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: <Widget>[
+              SizedBox(
+                height: 5.0,
+              ),
+              CircleAvatar(
+                backgroundColor: color,
+                radius: 35.0,
+                child: Icon(
+                  icono,
+                  color: Colors.white,
+                  size: 30.0,
+                ),
+              ),
+              Text(
+                texto,
+                style: TextStyle(color: color),
+              ),
+              SizedBox(
+                height: 5.0,
+              )
+            ],
           ),
-          Text(
-            'Cosa',
-            style: TextStyle(color: Colors.purple),
-          ),
-          SizedBox(
-            height: 5.0,
-          )
-        ],
+        ),
       ),
     );
   }
