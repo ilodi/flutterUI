@@ -158,7 +158,7 @@ class CompuestoPage extends StatelessWidget {
   Widget _crearBotonRedondeado(Color color, IconData icono, String texto) {
     return ClipRect(
       child: BackdropFilter(
-        filter: ImageFilter.blur(sigmaX: 1.0, sigmaY: 1.0),
+        filter: ImageFilter.blur(sigmaX: 0.5, sigmaY: 0.5),
         child: Container(
           height: 180.0,
           margin: EdgeInsets.all(15.0),
