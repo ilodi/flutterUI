@@ -129,26 +129,26 @@ class CompuestoPage extends StatelessWidget {
       children: [
         TableRow(
           children: [
-            _crearBotonRedondeado(Colors.blue, Icons.border_all, 'General'),
-            _crearBotonRedondeado(Colors.purple, Icons.edit, 'General'),
+            _crearBotonRedondeado(Colors.blue, Icons.border_all, 'Flutter'),
+            _crearBotonRedondeado(Colors.purple, Icons.edit, 'Flutter'),
           ],
         ),
         TableRow(
           children: [
-            _crearBotonRedondeado(Colors.red, Icons.edit_attributes, 'General'),
-            _crearBotonRedondeado(Colors.orange, Icons.enhanced_encryption, 'General'),
+            _crearBotonRedondeado(Colors.red, Icons.edit_attributes, 'Flutter'),
+            _crearBotonRedondeado(Colors.orange, Icons.enhanced_encryption, 'Flutter'),
           ],
         ),
         TableRow(
           children: [
-            _crearBotonRedondeado(Colors.green, Icons.eject, 'General'),
-            _crearBotonRedondeado(Colors.yellow, Icons.drag_handle, 'General'),
+            _crearBotonRedondeado(Colors.green, Icons.eject, 'Flutter'),
+            _crearBotonRedondeado(Colors.yellow, Icons.drag_handle, 'Flutter'),
           ],
         ),
         TableRow(
           children: [
-            _crearBotonRedondeado(Colors.blueAccent, Icons.dvr, 'General'),
-            _crearBotonRedondeado(Colors.lightBlue, Icons.directions_bus, 'General'),
+            _crearBotonRedondeado(Colors.blueAccent, Icons.dvr, 'Flutter'),
+            _crearBotonRedondeado(Colors.lightBlue, Icons.directions_bus, 'Flutter'),
           ],
         )
       ],
@@ -175,7 +175,8 @@ class CompuestoPage extends StatelessWidget {
               CircleAvatar(
                 backgroundColor: color,
                 radius: 35.0,
-                child: Icon(
+                child: 
+                Icon(
                   icono,
                   color: Colors.white,
                   size: 30.0,
