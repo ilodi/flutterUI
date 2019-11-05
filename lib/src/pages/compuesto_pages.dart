@@ -12,9 +12,11 @@ class CompuestoPage extends StatelessWidget {
         children: <Widget>[
           _fondoApp(),
           SingleChildScrollView(
+            //SigleScroll se usa como un scrollView
             child: Column(
               children: <Widget>[
                 _titulos(),
+                _bottonesRedondeados(),
               ],
             ),
           )
@@ -68,7 +70,7 @@ class CompuestoPage extends StatelessWidget {
   Widget _titulos() {
     return SafeArea(
       child: Container(
-        padding: EdgeInsets.all(20.0),
+        padding: EdgeInsets.all(13.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
@@ -78,7 +80,7 @@ class CompuestoPage extends StatelessWidget {
                     fontSize: 34.0,
                     fontWeight: FontWeight.bold)),
             SizedBox(
-              height: 5.0,
+              height: 3.0,
             ),
             Text(
               'Classify transaction into a particulas category',
@@ -95,26 +97,80 @@ class CompuestoPage extends StatelessWidget {
 
   Widget _BottomNavigationBar(BuildContext context) {
     return new Theme(
+      //copia del tema actual
       data: Theme.of(context).copyWith(
-        canvasColor: Color.fromRGBO(55, 57, 84, 1.0),
-        primaryColor: Colors.pinkAccent,
-        textTheme: Theme.of(context).textTheme.copyWith(
-          caption: TextStyle(color: Color.fromRGBO(116, 117, 152, 1.0))
-        )
-      ),
+          canvasColor: Color.fromRGBO(55, 52, 102, 1.0),
+          primaryColor: Colors.pinkAccent,
+          //los otros botones no activos texto secundario
+          textTheme: Theme.of(context).textTheme.copyWith(
+              caption: TextStyle(color: Color.fromRGBO(116, 117, 152, 1.0)))),
       child: BottomNavigationBar(
         items: [
           BottomNavigationBarItem(
             title: Container(),
-            icon: Icon(Icons.calendar_today, size: 30.0),
+            icon: Icon(Icons.calendar_today, size: 24.0),
           ),
           BottomNavigationBarItem(
             title: Container(),
-            icon: Icon(Icons.bubble_chart, size: 30.0),
+            icon: Icon(Icons.bubble_chart, size: 24.0),
           ),
           BottomNavigationBarItem(
             title: Container(),
-            icon: Icon(Icons.supervised_user_circle, size: 30.0),
+            icon: Icon(Icons.supervised_user_circle, size: 24.0),
+          )
+        ],
+      ),
+    );
+  }
+
+  Widget _bottonesRedondeados() {
+    return Table(
+      children: [
+        TableRow(
+          children: [_crearBotonRedondeado(), _crearBotonRedondeado()],
+        ),
+        TableRow(
+          children: [_crearBotonRedondeado(), _crearBotonRedondeado()],
+        ),
+        TableRow(
+          children: [_crearBotonRedondeado(), _crearBotonRedondeado()],
+        ),
+        TableRow(
+          children: [_crearBotonRedondeado(), _crearBotonRedondeado()],
+        )
+      ],
+    );
+  }
+
+  Widget _crearBotonRedondeado() {
+    return Container(
+      height: 180.0,
+      margin: EdgeInsets.all(15.0),
+      decoration: BoxDecoration(
+        color: Color.fromRGBO(62, 66, 107, 0.7),
+        borderRadius: BorderRadius.circular(20.0),
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: <Widget>[
+           SizedBox(
+            height: 5.0,
+          ),
+          CircleAvatar(
+            backgroundColor: Colors.purple,
+            radius: 35.0,
+            child: Icon(
+              Icons.bug_report,
+              color: Colors.white,
+              size: 30.0,
+            ),
+          ),
+          Text(
+            'Cosa',
+            style: TextStyle(color: Colors.purple),
+          ),
+          SizedBox(
+            height: 5.0,
           )
         ],
       ),
